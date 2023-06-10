@@ -1,0 +1,71 @@
+<h1>add Movie</h1>
+
+<form #form="ngForm" >
+    <div class="form-group">
+
+<label>nomFilm</label>
+<input type="text" class="form-control" name="nomFilm" ngModel #nomFilm="ngModel" required minlength="3" pattern="[a-zA-Z]*">
+<div *ngIf="nomFilm.touched &&  (nomFilm.dirty || nomFilm.touched)" >
+    <span *ngIf="nomFilm.errors?.['required']">
+     required
+     </span>
+     <span *ngIf="nomFilm.errors?.['minlength']">
+         minlength
+         </span>
+         <span *ngIf="nomFilm.errors?.['pattern']">
+             errors pattern
+             </span>
+ </div>
+
+<br><br>
+<label>description</label>
+<input type="text" class="form-control" name="description" ngModel #description="ngModel">
+
+<br><br>
+
+<label>nbPlace</label>
+<input type="text" class="form-control" name="nbPlace"ngModel #nbPlace="ngModel" pattern="[0-9]*" >
+<div *ngIf="nbPlace.touched &&  (nbPlace.dirty || nbPlace.touched)" >
+
+         <span *ngIf="nbPlace.errors?.['pattern']">
+        veillez saisir des chiffres seulement
+         </span>
+ </div>
+<br><br>
+<button class="button-36" type="submit" (click)="addMovie(form.value)">save</button></div>
+</form>
+<!--
+
+<form #form="ngForm" >
+    <div class="form-group">
+
+<label>nomFilm</label>
+<input type="text" class="form-control" name="nomFilm" ngModel #nomFilm="ngModel" required minlength="3" pattern="[a-zA-Z]*">
+<div *ngIf="nomFilm.touched &&  (nomFilm.dirty || nomFilm.touched)" >
+   <span *ngIf="nomFilm.errors?.['required']">
+    required
+    </span>
+    <span *ngIf="nomFilm.errors?.['minlength']">
+        minlength
+        </span>
+        <span *ngIf="nomFilm.errors?.['pattern']">
+            errors pattern
+            </span>
+</div>
+</div>
+<br><br>
+<label>description</label>
+<input type="text" class="form-control" name="description"  ngModel #description="ngModel">
+
+<br><br>
+
+<label>domaine</label>
+<input type="text" class="form-control" name="domaine" required minlength="3" pattern="[a-zA-Z]*" ngModel #domaine="ngModel">
+
+<div *ngIf="domaine.value == 'React' ">dddd</div>
+<br><br>
+<label>auteur</label>
+<input type="text" class="form-control"name="auteur"   ngModel #auteur="ngModel" >
+<br><br>
+<button class="button-36" type="submit" (click)="addArticle(form.value)">save</button>
+</form>-->

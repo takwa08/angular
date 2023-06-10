@@ -1,0 +1,38 @@
+<h1>Update an article</h1>
+
+
+<form #form="ngForm" >
+
+
+<label>titre</label>
+<input type="text" class="form-control" name="titre" [(ngModel)]="article.titre" ngModel #titre="ngModel" required minlength="3" pattern="[a-zA-Z]*">
+<div *ngIf="titre.touched &&  (titre.dirty || titre.touched)">
+   <span *ngIf="titre.errors?.['required']">
+    required
+    </span>
+    <span *ngIf="titre.errors?.['minlength']">
+        minlength
+        </span>
+        <span *ngIf="titre.errors?.['pattern']">
+            PATTERN
+            </span>
+</div>
+<label>description</label>
+<input type="text" class="form-control" name="description" [(ngModel)]="article.description"  required ngModel #description="ngModel">
+
+<div *ngIf="titre.touched &&  (titre.dirty || titre.touched)">
+    <span *ngIf="titre.errors?.['required']">
+     required
+     </span>
+    </div>
+
+<label>domaine</label>
+<input type="text" class="form-control" name="domaine" [(ngModel)]="article.domaine" required minlength="3" pattern="[a-zA-Z]*" ngModel #domaine="ngModel">
+<div *ngIf="domaine.value == 'React' ">dddd</div>
+
+<label>auteur</label>
+<input type="text"class="form-control" name="auteur" [(ngModel)]="article.auteur" required ngModel #auteur="ngModel" >
+<br><br>
+<button class="button-36" type="submit"(click)="update(form.value)">save</button>
+
+</form>

@@ -1,0 +1,35 @@
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th> id</th>
+            <th>film</th>
+            <th>Salle</th>
+            <th>description</th>
+            <th>nbPlace</th>  
+            <th>raiting</th>
+
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let movie of Movies">
+
+         <td> {{movie.id}}</td>
+         <td>{{movie.nomFilm}}</td>
+         <td>{{movie.nomSalle}}</td>
+         <td>{{movie.description}}</td>
+         <td>{{movie.nbPlace}}</td>
+         <td>{{movie.raiting}}</td>
+         
+
+<td>
+    <a [routerLink]="['/detail/',movie.id]"> details</a>
+    <br>
+    <a href=""(click)="rating(movie)">  rating </a>
+<br>
+    <button (click)="remove(movie.id)">Remove</button>
+</td>
+        </tr>
+        </tbody>
+        </table>
